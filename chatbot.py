@@ -1,52 +1,56 @@
+import os
 from groq import Groq
 from dotenv import load_dotenv
-import os
 
 # Load environment variables
 load_dotenv()
 
-# Initialize Groq client
+# Initialize Groq Client
 client = Groq(
     api_key=os.getenv("GROQ_API_KEY")
 )
 
-# AI chatbot function
+# AI Response Function
 def get_gemini_response(user_input):
 
-    system_prompt = """
-    You are PlaceMentor AI, an AI-powered placement preparation assistant.
-
-    Your responsibilities:
-    - Help students prepare for placements
-    - Explain technical concepts clearly
-    - Provide aptitude tips
-    - Give HR interview guidance
-    - Suggest resume improvements
-    - Give career guidance
-    - Answer in a simple and student-friendly way
-
-    Keep answers:
-    - Clear
-    - Professional
-    - Short and understandable
-    """
-
     try:
+
+        # Generate AI Response
         chat_completion = client.chat.completions.create(
             messages=[
                 {
                     "role": "system",
-                    "content": system_prompt
+                    "content": """
+                    You are PlaceMentor AI,
+                    an AI-powered placement preparation assistant.
+
+                    Help students with:
+                    - Technical Interview Preparation
+                    - Aptitude Questions
+                    - HR Interview Questions
+                    - Resume Tips
+                    - Career Guidance
+
+                    Give clear and professional answers.
+                    """
                 },
                 {
                     "role": "user",
-                    "content": user_input
+                    "content": user_input,
                 }
             ],
+
+            # Updated Groq Model
             model="llama-3.3-70b-versatile",
+
+            temperature=0.7,
+            max_tokens=1024
         )
 
+        # Return AI Response
         return chat_completion.choices[0].message.content
 
     except Exception as e:
+
         return f"Error: {str(e)}"
+
