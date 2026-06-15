@@ -15,31 +15,23 @@ st.set_page_config(
 # =========================
 # CUSTOM CSS
 # =========================
+
 st.markdown("""
 <style>
 
 /* Main App */
 .stApp {
-    background-color: #0E1117;
-}
-
-/* Main Text */
-html, body, [class*="css"]  {
-    color: white;
+    transition: 0.3s;
 }
 
 /* Headings */
 h1, h2, h3 {
-    color: #00ADB5;
+    color: #00ADB5 !important;
 }
 
 /* Sidebar */
 section[data-testid="stSidebar"] {
-    background-color: #161A23;
-}
-
-section[data-testid="stSidebar"] * {
-    color: white !important;
+    background-color: rgba(20, 20, 20, 0.05);
 }
 
 /* Buttons */
@@ -58,42 +50,27 @@ div.stButton > button:hover {
     color: white;
 }
 
-/* Chat Input */
-.stChatInputContainer {
-    background-color: #161A23;
-}
-
 /* Chat Messages */
 [data-testid="stChatMessage"] {
-    background-color: #161A23;
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 10px;
-    color: white;
 }
 
 /* Metrics */
 [data-testid="metric-container"] {
-    background-color: #161A23;
-    padding: 15px;
     border-radius: 10px;
-    color: white;
+    padding: 15px;
 }
 
-/* Selectbox */
-.stSelectbox label {
-    color: white !important;
+/* Inputs */
+textarea, input {
+    border-radius: 10px !important;
 }
 
-/* Text Area */
-textarea {
-    color: white !important;
-    background-color: #161A23 !important;
-}
-
-/* Radio Buttons */
-.stRadio label {
-    color: white !important;
+/* Remove forced white text */
+html, body, [class*="css"] {
+    color: inherit !important;
 }
 
 </style>
