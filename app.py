@@ -18,19 +18,31 @@ st.set_page_config(
 st.markdown("""
 <style>
 
-.main {
+/* Main App */
+.stApp {
     background-color: #0E1117;
 }
 
-.stApp {
-    background-color: #0E1117;
+/* Main Text */
+html, body, [class*="css"]  {
     color: white;
 }
 
+/* Headings */
 h1, h2, h3 {
     color: #00ADB5;
 }
 
+/* Sidebar */
+section[data-testid="stSidebar"] {
+    background-color: #161A23;
+}
+
+section[data-testid="stSidebar"] * {
+    color: white !important;
+}
+
+/* Buttons */
 div.stButton > button {
     background-color: #00ADB5;
     color: white;
@@ -43,6 +55,45 @@ div.stButton > button {
 
 div.stButton > button:hover {
     background-color: #008C9E;
+    color: white;
+}
+
+/* Chat Input */
+.stChatInputContainer {
+    background-color: #161A23;
+}
+
+/* Chat Messages */
+[data-testid="stChatMessage"] {
+    background-color: #161A23;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+/* Metrics */
+[data-testid="metric-container"] {
+    background-color: #161A23;
+    padding: 15px;
+    border-radius: 10px;
+    color: white;
+}
+
+/* Selectbox */
+.stSelectbox label {
+    color: white !important;
+}
+
+/* Text Area */
+textarea {
+    color: white !important;
+    background-color: #161A23 !important;
+}
+
+/* Radio Buttons */
+.stRadio label {
+    color: white !important;
 }
 
 </style>
